@@ -3,9 +3,13 @@
   "name": "Gemini Translate",
   "version": "1.0",
   "description": "Dịch nhanh bằng Gemini AI",
-  "permissions": ["contextMenus", "activeTab", "scripting"],
+  "permissions": ["contextMenus", "activeTab", "scripting","storage"],
+  "host_permissions": ["https://ai-translate-ai.vercel.app/*"],
   "background": {
     "service_worker": "background.js"
+  },
+  "action": {
+    "default_popup": "popup.html"
   },
   "content_scripts": [
     {
