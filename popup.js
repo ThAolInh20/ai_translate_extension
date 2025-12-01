@@ -1,9 +1,11 @@
-// load setting
+// Load setting
 chrome.storage.sync.get("targetLang", (data) => {
-  document.getElementById("lang").value = data.targetLang || "vi";
+  document.getElementById("targetLang").value = data.targetLang || "vi";
 });
 
-// save setting
-document.getElementById("lang").addEventListener("change", (e) => {
+// Save setting
+document.getElementById("targetLang").addEventListener("input", (e) => {
   chrome.storage.sync.set({ targetLang: e.target.value });
+  document.getElementById("status").innerText = "Đã lưu ✔";
+  setTimeout(() => (document.getElementById("status").innerText = ""), 1000);
 });

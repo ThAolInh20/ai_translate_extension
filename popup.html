@@ -1,18 +1,30 @@
 <!DOCTYPE html>
 <html>
-    <head>
+  <head>
     <meta charset="UTF-8" />
   </head>
-  <body style="width:180px; padding:10px; font-family:sans-serif">
-    <label style="font-weight:bold">Ngôn ngữ dịch:</label>
-    <select id="lang" style="margin-top:6px; width:100%; padding:4px">
-      <option value="vi">Dịch sang Tiếng Việt</option>
-      <option value="en">Dịch sang Tiếng Anh</option>
-      <option value="ja">Dịch sang Tiếng Nhật</option>
-      <option value="ko">Dịch sang Tiếng Hàn</option>
-      <option value="zh">Dịch sang Tiếng Trung</option>
-    </select>
+
+  <body style="width:200px; padding:12px; font-family:sans-serif">
+
+    <label style="font-weight:bold;">Ngôn ngữ muốn dịch sang:</label>
+
+    <input 
+      id="targetLang" 
+      type="text" 
+      placeholder="vd: vi, english, japanese..."
+      style="
+        margin-top:8px;
+        width:100%;
+        padding:6px;
+        border-radius:6px;
+        border:1px solid #ccc;
+        font-size:13px;
+      "
+    />
+
+    <div id="status" style="font-size:12px; margin-top:6px; color:#999;"></div>
 
     <script src="popup.js"></script>
+
   </body>
 </html>
