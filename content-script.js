@@ -88,7 +88,10 @@ function showBox(html) {
     closeBtn.style.fontSize = "15px";
     closeBtn.style.color = "#bbb";
 
-    closeBtn.onclick = () => box.remove();
+    closeBtn.onclick = () => {
+  box.remove();
+  box = null; // reset để lần sau tạo box mới
+};
 
     box.appendChild(closeBtn);
     document.body.appendChild(box);
