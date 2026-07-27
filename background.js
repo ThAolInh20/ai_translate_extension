@@ -34,9 +34,10 @@ function handleTranslation(text, tabId) {
     original: text
   });
 
-  // Lấy ngôn ngữ đích user chọn
-  chrome.storage.sync.get("targetLang", async (data) => {
+  // Lấy cấu hình ngôn ngữ đích và model được chọn
+  chrome.storage.sync.get(["targetLang", "selectedModel"], async (data) => {
     const target = data.targetLang || "vi";
+    const model = data.selectedModel || "gemini-2.5-flash-lite";
 
     try {
       const res = await fetch(API_URL, {
@@ -44,7 +45,8 @@ function handleTranslation(text, tabId) {
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
           text: text,
-          target: target      // << gửi target lên API
+          target: target,
+          model: model      // << gửi target và model lên API
         })
       });
 
